@@ -1,0 +1,32 @@
+{
+  "User": [
+    {
+      "name": "Madhulika",
+      "Lastname": "Arya",
+      "email": "madhulika@gmail.com",
+      "dob": "2021-05-11",
+      "contact": [
+        {
+          "prefered": true,
+          "phone": "Home",
+          "phonenumber": "9971996664"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "john",
+      "Lastname": "",
+      "email": "john@youi.com",
+      "dob": "2021-05-03",
+      "contact": [
+        {
+          "prefered": false,
+          "phone": "Office",
+          "phonenumber": "967676767"
+        }
+      ],
+      "id": 2
+    }
+  ]
+}

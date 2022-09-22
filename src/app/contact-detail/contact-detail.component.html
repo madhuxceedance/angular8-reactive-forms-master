@@ -1,0 +1,81 @@
+<!-- Toolbar -->
+<mat-toolbar color="warn" class="header">
+  <span class="title-center mat-h1">Contact Details</span>
+</mat-toolbar>
+
+<!-- wrapper -->
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+      <!-- Name -->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="FirstName" formControlName="name">
+        <!-- error -->
+        <mat-error *ngIf="errorHandling('name', 'required')">
+          You must provide a<strong>First name</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="LastName" formControlName="Lastname">
+
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email"  formControlName="email">
+        <!-- error -->
+        <mat-error *ngIf="errorHandling('email', 'email')">
+          You must provide correct<strong> email </strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Date picker -->
+      <mat-form-field>
+        <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="dob"
+               (dateChange)="date($event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <!-- error -->
+        <mat-error *ngIf="errorHandling('dob', 'required')">
+          Please enter <strong>date of birth</strong>
+        </mat-error>
+      </mat-form-field>
+      <!---formarray-->
+      <div formArrayName="contact">
+
+        <div class="row" *ngFor="let email of myForm.get('contact').controls; let i = index"
+             [formGroupName]="i">
+          <div class="col-1">
+            <mat-slide-toggle formControlName="prefered">Preferred</mat-slide-toggle>
+          </div>
+          <mat-form-field class="col-4">
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="phone">
+              <mat-option *ngFor="let phoneArray of PhoneArray" [value]="phoneArray">
+                {{phoneArray}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="col-4" hintLabel="Max 10 characters">
+            <input matInput formControlName="phonenumber" #input maxlength="10" placeholder="Phone">
+            <!--<mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>-->
+          </mat-form-field>
+
+        </div>
+        <div class="col-3">
+          <button class="float-left" mat-icon-button color="primary" type="button" aria-label="Add"
+
+                  (click)="addFormGroup()" matTooltip="Add">
+            <mat-icon>add_circle_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="button-wrapper">
+        <button mat-flat-button color="primary" [disabled]="!myForm.valid">Submit</button>
+      </div>
+
+    </form>
+  </mat-sidenav-content>
+</mat-sidenav-container>

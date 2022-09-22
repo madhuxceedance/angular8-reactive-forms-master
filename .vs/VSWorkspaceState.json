@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\authorize-person",
+    "\\src\\app\\contact-detail",
+    "\\src\\app\\insurance-detail",
+    "\\src\\app\\insurance-details",
+    "\\src\\app\\quote-summary"
+  ],
+  "SelectedNode": "\\src\\app\\quote-summary\\quote-summary.component.html",
+  "PreviewInSolutionExplorer": false
+}
